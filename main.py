@@ -42,11 +42,11 @@ def get_stats(message):
     result = db_object.fetchall()
 
     if not result:
-        bot.reply_to(message, "No dklsjfklsdjf kldsjfkljdskflj data...")
+        bot.reply_to(message, "No data...")
     else:
         reply_message = " - Top users:\n"
         for i, item in enumerate(result):
-            reply_message += f"[{i + 1}] {item[1].strip()} ({item[0]}) : {item[2]} messages.\n"
+            reply_message += f"[{i + 1}] {item[1].strip()} ({item[0]}) : {item[2] + 1} messages.\n"
         bot.reply_to(message, reply_message)
 
     update_messages_count(message.from_user.id)

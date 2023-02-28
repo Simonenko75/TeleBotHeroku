@@ -23,7 +23,7 @@ def update_messages_count(user_id):
 @bot.message_handler(commands=["start"])
 def start(message):
     user_id = message.from_user.id
-    username = message.from_user.username
+    username = message.from_user.first_name
     bot.reply_to(message, f"Hello, {username}")
 
     db_object.execute(f"SELECT id FROM users WHERE id = {user_id}")

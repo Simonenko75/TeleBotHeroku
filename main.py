@@ -36,9 +36,9 @@ def start(message):
     update_messages_count(user_id)
 
 
-@bot.message_handler(commands=["stars"])
-def get_stars(message):
-    db_object.execute("SELECT * FROM users ORDER BY messages DESC LIMIT id")
+@bot.message_handler(commands=["stats"])
+def get_stats(message):
+    db_object.execute("SELECT * FROM users ORDER BY messages DESC LIMIT 10")
     result = db_object.fetchall()
 
     if not result:

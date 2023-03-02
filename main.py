@@ -56,6 +56,7 @@ def get_stats(message):
 def message_from_user(message):
     user_id = message.from_user.id
     update_messages_count(user_id)
+    bot.reply_to(message, message.text)
 
 
 @server.route(f"/{tg_bot_token}", methods=["POST"])
